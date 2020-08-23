@@ -8,7 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
-final class FadeableViewController: UIViewController {
+public final class FadeableViewController: UIViewController {
     let targetBackgroundColor: UIColor
     private let animationDuration: TimeInterval
     private weak var transitionLayerView: UIView!
@@ -41,7 +41,7 @@ final class FadeableViewController: UIViewController {
         }
     }
     
-    func presentWithFade(_ fadeableController: FadeableViewController) {
+    public func presentWithFade(_ fadeableController: FadeableViewController) {
         nextViewController = fadeableController
         
         fadeToPresentedController(fadeableController) {
@@ -49,7 +49,7 @@ final class FadeableViewController: UIViewController {
         }
     }
     
-    func dismissWithFade() {
+    public func dismissWithFade() {
         if let _ = presentingViewController as? FadeableViewController {
             fadeToPresentingController()
         } else {
