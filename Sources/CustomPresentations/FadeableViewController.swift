@@ -14,14 +14,14 @@ open class FadeableViewController: UIViewController {
     private weak var transitionLayerView: UIView!
     private weak var nextViewController: UIViewController?
     
-    open init(targetBackgroundColor: UIColor, animationDuration: TimeInterval = 0.4) {
+    public init(targetBackgroundColor: UIColor, animationDuration: TimeInterval = 0.4) {
         self.targetBackgroundColor = targetBackgroundColor
         self.animationDuration = animationDuration
         super.init(nibName: nil, bundle: nil)
         modalPresentationStyle = .fullScreen
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
