@@ -8,13 +8,13 @@
 #if canImport(UIKit)
 import UIKit
 
-public class FadeableViewController: UIViewController {
-    let targetBackgroundColor: UIColor
+open class FadeableViewController: UIViewController {
+    public let targetBackgroundColor: UIColor
     private let animationDuration: TimeInterval
     private weak var transitionLayerView: UIView!
     private weak var nextViewController: UIViewController?
     
-    public init(targetBackgroundColor: UIColor, animationDuration: TimeInterval = 0.4) {
+    open init(targetBackgroundColor: UIColor, animationDuration: TimeInterval = 0.4) {
         self.targetBackgroundColor = targetBackgroundColor
         self.animationDuration = animationDuration
         super.init(nibName: nil, bundle: nil)
@@ -25,13 +25,13 @@ public class FadeableViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = targetBackgroundColor
         addTransitionLayerView()
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
+    open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if nextViewController != nil {
@@ -41,7 +41,7 @@ public class FadeableViewController: UIViewController {
         }
     }
     
-    public func presentWithFade(_ fadeableController: FadeableViewController) {
+    open func presentWithFade(_ fadeableController: FadeableViewController) {
         nextViewController = fadeableController
         
         fadeToPresentedController(fadeableController) {
@@ -49,7 +49,7 @@ public class FadeableViewController: UIViewController {
         }
     }
     
-    public func dismissWithFade() {
+    open func dismissWithFade() {
         if let _ = presentingViewController as? FadeableViewController {
             fadeToPresentingController()
         } else {
