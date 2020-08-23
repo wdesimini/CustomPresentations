@@ -8,7 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
-public final class FadeableViewController: UIViewController {
+public class FadeableViewController: UIViewController {
     let targetBackgroundColor: UIColor
     private let animationDuration: TimeInterval
     private weak var transitionLayerView: UIView!
