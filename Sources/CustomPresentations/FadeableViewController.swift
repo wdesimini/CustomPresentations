@@ -14,7 +14,7 @@ public final class FadeableViewController: UIViewController {
     private weak var transitionLayerView: UIView!
     private weak var nextViewController: UIViewController?
     
-    init(targetBackgroundColor: UIColor, animationDuration: TimeInterval = 0.4) {
+    public init(targetBackgroundColor: UIColor, animationDuration: TimeInterval = 0.4) {
         self.targetBackgroundColor = targetBackgroundColor
         self.animationDuration = animationDuration
         super.init(nibName: nil, bundle: nil)
@@ -25,13 +25,13 @@ public final class FadeableViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = targetBackgroundColor
         addTransitionLayerView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         if nextViewController != nil {
