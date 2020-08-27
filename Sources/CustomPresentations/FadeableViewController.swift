@@ -31,6 +31,14 @@ open class FadeableViewController: UIViewController {
         addTransitionLayerView()
     }
     
+    open override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if nextViewController == nil {
+            view.bringSubviewToFront(transitionLayerView)
+        }
+    }
+    
     open override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
